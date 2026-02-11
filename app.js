@@ -11,8 +11,8 @@ let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [
 let peliculaEditando = null;
 
 // ===============================
-// ELEMENTOS DOM
-// ===============================
+//Elementos DOM
+
 const loginSection = document.getElementById("loginSection");
 const mainContent = document.getElementById("mainContent");
 const btnLogin = document.getElementById("btnLogin");
@@ -26,8 +26,8 @@ const sinResultados = document.getElementById("sinResultados");
 const inputBuscar = document.getElementById("inputBuscar");
 const selectGenero = document.getElementById("selectGenero");
 
-// ===============================
-// LOGIN
+
+// Login
 // ===============================
 document.getElementById("formLogin").addEventListener("submit", e => {
     e.preventDefault();
@@ -63,8 +63,8 @@ if (localStorage.getItem("logueado")) {
 }
 
 // ===============================
-// REGISTRO
-// ===============================
+// Registro
+
 document.getElementById("formRegistro").addEventListener("submit", e => {
     e.preventDefault();
 
@@ -83,8 +83,7 @@ document.getElementById("formRegistro").addEventListener("submit", e => {
     document.getElementById("login-tab").click();
 });
 
-// ===============================
-// CRUD PELÍCULAS
+// CRUD peliculas
 // ===============================
 btnAgregar.addEventListener("click", () => {
     peliculaEditando = null;
@@ -115,9 +114,7 @@ btnGuardarPelicula.addEventListener("click", () => {
     renderPeliculas();
 });
 
-// ===============================
-// RENDER PELÍCULAS
-// ===============================
+
 function renderPeliculas() {
     gridPeliculas.innerHTML = "";
     carouselMovies.innerHTML = "";
@@ -160,9 +157,7 @@ function renderPeliculas() {
     });
 }
 
-// ===============================
-// ACCIONES
-// ===============================
+
 function eliminarPelicula(id) {
     if (confirm("¿Eliminar película?")) {
         peliculas = peliculas.filter(p => p.id !== id);
@@ -201,15 +196,13 @@ function verDetalles(id) {
     new bootstrap.Modal(modalDetalles).show();
 }
 
-// ===============================
-// BUSCADOR Y FILTRO
+// Filtro
 // ===============================
 inputBuscar.addEventListener("input", renderPeliculas);
 selectGenero.addEventListener("change", renderPeliculas);
 
-// ===============================
-// SLIDER
-// ===============================
+
 function scrollSlider(dir) {
     carouselMovies.scrollLeft += dir * 300;
+
 }
